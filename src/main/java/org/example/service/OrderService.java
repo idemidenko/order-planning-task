@@ -19,16 +19,15 @@ public class OrderService {
 
   public Order createOrder(Product product, Integer count, Customer customer) {
     Order order = new Order(product, count, customer);
+
+    // TODO: implement
     Warehouse nearestWarehouse = warehouseService.findNearestWarehouse(order);
 
     if (nearestWarehouse == null) {
       throw new RuntimeException("No warehouse is found");
     }
 
-    order.setWarehouse(nearestWarehouse);
-
-    warehouseService.reserveProduct(nearestWarehouse, product, count);
-    ORDERS.add(order);
+    warehouseService.printWarehousesState();
 
     return order;
   }

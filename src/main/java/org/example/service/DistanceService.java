@@ -40,11 +40,7 @@ public class DistanceService {
   }
 
   public Optional<Distance> findDistance(Warehouse warehouse, Customer customer) {
-    return distances.stream()
-        .filter(
-            distance ->
-                Objects.equals(distance.getWarehouse(), warehouse)
-                    && Objects.equals(distance.getCustomer(), customer))
-        .findAny();
+    // TODO: implement
+    return distances.stream().findAny();
   }
 }
